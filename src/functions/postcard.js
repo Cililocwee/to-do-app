@@ -22,6 +22,7 @@ const postCards = (() => {
 
 
         function addItem(){
+            if(box.value.length < 1){return};
             const newItem = document.createElement('div');
             newItem.innerHTML = document.getElementById(utcLongForm).value;
             newItem.classList.add('to-do-item');
@@ -35,11 +36,20 @@ const postCards = (() => {
         box.type = 'text';
         box.placeholder = 'Enter new note here';
         box.id = utcLongForm;
-        box.addEventListener('enter', () => {addItem});
+        box.addEventListener('keypress', (event) => {
+            if(event.key === 'Enter'){
+                addItem();
+                box.value = '';
+            }
+        });
         
-        const addbtn = document.createElement('input');
-        addbtn.value = "+";
+        const addbtn = document.createElement('button');
+        addbtn.classList.add('button-87');
+        addbtn.value = "add";
         addbtn.onclick = addItem;
+        addbtn.addEventListener('click', () => {
+            box.value = '';
+        })
         addbtn.type = 'button';
 
         newDateCard.appendChild(box);
