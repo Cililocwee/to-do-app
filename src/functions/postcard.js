@@ -3,14 +3,17 @@ const postCards = (() => {
     
     // this is an experiment for debugging
     function addFullItem() {
-        const utc = new Date().toJSON().slice(0,10).replace(/-/g,'/');
+        const utcShortForm = new Date().toJSON().slice(0,10).replace(/-/g,'/');
+        const utcLongForm = new Date().toJSON();
         const newDateCard = document.createElement('div');
         newDateCard.classList.add('date-card');
         const newDateDisplay = document.createElement('div');
         newDateDisplay.classList.add('date-display');
-        newDateDisplay.innerText = String(utc);
+        newDateDisplay.innerText = String(utcShortForm);
 
-        document.getElementById('list').appendChild(newDateCard);
+        const list = document.querySelector('#list');
+        //document.getElementById('list').appendChild(newDateCard);
+        list.insertBefore(newDateCard, list.firstChild);
         newDateCard.appendChild(newDateDisplay);
         
         const newContainer = document.createElement('div');
@@ -20,46 +23,28 @@ const postCards = (() => {
 
         function addItem(){
             const newItem = document.createElement('div');
-            newItem.innerHTML = document.getElementById(utc).value;
+            newItem.innerHTML = document.getElementById(utcLongForm).value;
             newItem.classList.add('to-do-item');
             newItem.onclick = removeItem;
+            //newContainer.appendChild(newItem);
             newContainer.appendChild(newItem);
         }
 
-        /*
+        
         const box = document.createElement('input');
         box.type = 'text';
         box.placeholder = 'Enter new note here';
-        box.id = utc;
+        box.id = utcLongForm;
+        box.addEventListener('enter', () => {addItem});
         
         const addbtn = document.createElement('input');
         addbtn.value = "+";
         addbtn.onclick = addItem;
-        addbtn.type = 'button';*/
+        addbtn.type = 'button';
 
-        const fancyform = document.createElement('div');
-        fancyform.classList.add('input-group','mb-3');
-        const inputfield = document.createElement('input');
-        inputfield.id = utc;    //This is NOT working right
-        inputfield.type = 'text';
-        inputfield.classList.add('form-control');
-        inputfield.placeholder = 'Enter new note...';
-        inputfield.ariaDescribedby = "basic-addon2";
-        const inputgroupappend = document.createElement('div');
-        inputgroupappend.classList.add("input-group-append");
-        const clickbtn = document.createElement('button');
-        clickbtn.classList.add('btn', 'btn-outline-secondary'); //the bootstrap css isn't working
-        clickbtn.type = 'button';
-        clickbtn.value = 'button';
-        clickbtn.onclick = addItem;
+        newDateCard.appendChild(box);
+        newDateCard.appendChild(addbtn);
 
-        //newDateCard.appendChild(box);
-        //newDateCard.appendChild(addbtn);
-
-        newDateCard.appendChild(fancyform);
-        fancyform.appendChild(inputfield);
-        fancyform.appendChild(inputgroupappend);
-        inputgroupappend.appendChild(clickbtn);
         saveList();
     }
 
