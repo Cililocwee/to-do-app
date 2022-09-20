@@ -137,16 +137,21 @@ html {
 .to-do-item p {
     margin: auto;
     grid-area: 1/1/2/3;
+    width: 100%;
 }
 
 .datelet {
-    width: 25px;
+    width: fit-content;
+    padding: 5px;
+    color: white;
     height: 25px;
     background-color: #0a3c1c;
 }
 
 .duelet {
-    width: 25px;
+    width: fit-content;
+    padding: 5px;
+    color: white;
     height: 25px;
     background-color: #555;
 }

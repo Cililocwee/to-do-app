@@ -61,6 +61,7 @@ const datetimeinput = document.createElement('input');
 datetimeinput.id = 'datetimeinput';
 datetimeinput.name = 'datetimeinput';
 datetimeinput.type = 'datetime-local';
+datetimeinput.required = true;
 
 // (FUNC) creates a new todolet with value from input box and posts it
 function makeToDolet() {
@@ -73,9 +74,11 @@ function makeToDolet() {
     // create the new datelet (current date/time)
     const newDateLet = document.createElement('div');
     newDateLet.classList.add('datelet');
+    newDateLet.innerText = utc;
     // create the new duelet (due date/time)
     const newDueLet = document.createElement('div');
     newDueLet.classList.add('duelet');
+    newDueLet.innerText = `Due: ${document.querySelector('#datetimeinput').value}`;
 
     // remove button
     const removebutton = document.createElement('h4');
@@ -96,9 +99,9 @@ dateCardDiv.append(dateDisplay,
     datetimeinput,
     todoletbutton,
     toDoContainer);
-toDoContainer.append(toDoItem1,
-    toDoItem2,
-    toDoItem3);
+//toDoContainer.append(toDoItem1,
+//    toDoItem2,
+//    toDoItem3);
 
 // adds functionality to the dropdown menu
 const dropbtn = document.querySelector('.dropbtn');
