@@ -1,5 +1,6 @@
 import './styles/style.css'
 import dropdown from './functions/dropdown';
+import memorycard from './functions/memorycard';
 
 // selecting the viewbox
 const viewBox = document.querySelector('.view-box')
@@ -8,18 +9,18 @@ const viewBox = document.querySelector('.view-box')
 const dateCardDiv = document.createElement('div');
 dateCardDiv.classList.add('date-card');
 
-// date display
+// current date display
 const dateDisplay = document.createElement('div');
 dateDisplay.classList.add('date-display');
 
-// date and formatting
-var utc = new Date().toJSON().slice(0,10).replace(/-/g,'/');
-//document.write(utc);
+// date and formatting (short form)
+var utc = new Date().toJSON().slice(0,10).replace(/-/g,'-');
 dateDisplay.innerText = utc;
 
 // todo container
 const toDoContainer = document.createElement('div');
 toDoContainer.classList.add('to-do-container');
+toDoContainer.id = 'to-do-container';
 
 // example posts
 const toDoItem1 = document.createElement('div');
@@ -32,6 +33,7 @@ const toDoItem3 = document.createElement('div');
 toDoItem3.classList.add('to-do-item');
 toDoItem3.innerHTML = "<p>I, too, am a div, my dear fellows.</p>"
 
+// creates the input field for the todolets
 const todoinput = document.createElement('input');
 todoinput.type = 'text';
 todoinput.placeholder = 'Enter new note here';
@@ -43,6 +45,7 @@ todoinput.addEventListener('keypress', (event) => {
     }
 });
 
+// creates the button that adds a new todolet
 const todoletbutton = document.createElement('button');
 todoletbutton.id = 'to-do-let-button';
 todoletbutton.classList.add('button-87')
@@ -53,18 +56,19 @@ todoletbutton.addEventListener('click', () => {
     todoinput.value = '';
 })
 
+// creates the timedate input element
 const datetimeinput = document.createElement('input');
 datetimeinput.id = 'datetimeinput';
 datetimeinput.name = 'datetimeinput';
 datetimeinput.type = 'datetime-local';
 
-// creates a new todolet with value from input box and posts it
+// (FUNC) creates a new todolet with value from input box and posts it
 function makeToDolet() {
     if (todoinput.value.length < 1) { return };
     const newToDoLet = document.createElement('div');
     newToDoLet.innerHTML = `<p>${todoinput.value}</p>`;
     newToDoLet.classList.add('to-do-item');
-    //newToDoLet.onclick = memorycard.removeItem;
+    newToDoLet.onclick = memorycard.removeItem;
     toDoContainer.appendChild(newToDoLet);
     return newToDoLet;
 }
@@ -80,6 +84,7 @@ viewBox.appendChild(dateCardDiv);
         toDoContainer.appendChild(toDoItem2);
         toDoContainer.appendChild(toDoItem3);
 
+// adds functionality to the dropdown menu
 const dropbtn = document.querySelector('.dropbtn');
 dropbtn.onclick = dropdown.myFunction;
 
