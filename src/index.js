@@ -1,5 +1,4 @@
 import './styles/style.css'
-import postCards from './functions/postcard';
 import dropdown from './functions/dropdown';
 
 // selecting the viewbox
@@ -13,6 +12,7 @@ dateCardDiv.classList.add('date-card');
 const dateDisplay = document.createElement('div');
 dateDisplay.classList.add('date-display');
 
+// date and formatting
 var utc = new Date().toJSON().slice(0,10).replace(/-/g,'/');
 //document.write(utc);
 dateDisplay.innerText = utc;
@@ -21,7 +21,7 @@ dateDisplay.innerText = utc;
 const toDoContainer = document.createElement('div');
 toDoContainer.classList.add('to-do-container');
 
-// todo slots
+// example posts
 const toDoItem1 = document.createElement('div');
 toDoItem1.classList.add('to-do-item');
 toDoItem1.innerHTML = "<p>This is the text in the first div.</p>";
@@ -32,19 +32,54 @@ const toDoItem3 = document.createElement('div');
 toDoItem3.classList.add('to-do-item');
 toDoItem3.innerHTML = "<p>I, too, am a div, my dear fellows.</p>"
 
+const todoinput = document.createElement('input');
+todoinput.type = 'text';
+todoinput.placeholder = 'Enter new note here';
+todoinput.id = 'to-do-input';
+todoinput.addEventListener('keypress', (event) => {
+    if (event.key === 'Enter') {
+        makeToDolet();
+        todoinput.value = '';
+    }
+});
+
+const todoletbutton = document.createElement('button');
+todoletbutton.id = 'to-do-let-button';
+todoletbutton.classList.add('button-87')
+todoletbutton.type = 'button';
+todoletbutton.value = "add";
+todoletbutton.onclick = makeToDolet;
+todoletbutton.addEventListener('click', () => {
+    todoinput.value = '';
+})
+
+const datetimeinput = document.createElement('input');
+datetimeinput.id = 'datetimeinput';
+datetimeinput.name = 'datetimeinput';
+datetimeinput.type = 'datetime-local';
+
+// creates a new todolet with value from input box and posts it
+function makeToDolet() {
+    if (todoinput.value.length < 1) { return };
+    const newToDoLet = document.createElement('div');
+    newToDoLet.innerHTML = `<p>${todoinput.value}</p>`;
+    newToDoLet.classList.add('to-do-item');
+    //newToDoLet.onclick = memorycard.removeItem;
+    toDoContainer.appendChild(newToDoLet);
+    return newToDoLet;
+}
 
 // constructing the page below the header
 viewBox.appendChild(dateCardDiv);
-dateCardDiv.appendChild(dateDisplay);
-dateCardDiv.appendChild(toDoContainer);
-toDoContainer.appendChild(toDoItem1);
-toDoContainer.appendChild(toDoItem2);
-toDoContainer.appendChild(toDoItem3);
-
-const postbtn = document.querySelector('#post-button');
-postbtn.onclick = postCards.addFullItem;
+    dateCardDiv.appendChild(dateDisplay);
+    dateCardDiv.appendChild(todoinput);
+    dateCardDiv.appendChild(datetimeinput);
+    dateCardDiv.appendChild(todoletbutton);
+    dateCardDiv.appendChild(toDoContainer);
+        toDoContainer.appendChild(toDoItem1);
+        toDoContainer.appendChild(toDoItem2);
+        toDoContainer.appendChild(toDoItem3);
 
 const dropbtn = document.querySelector('.dropbtn');
 dropbtn.onclick = dropdown.myFunction;
 
-postCards.loadList;
