@@ -129,8 +129,30 @@ html {
     border-radius: 10px;
     padding: 5px;
     align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
 }
 
 .to-do-item p {
     margin: auto;
+    grid-area: 1/1/2/3;
+}
+
+.datelet {
+    width: 25px;
+    height: 25px;
+    background-color: #0a3c1c;
+}
+
+.duelet {
+    width: 25px;
+    height: 25px;
+    background-color: #555;
+}
+
+.remove-button {
+    position: absolute;
+    top: -2px;
+    right: 10px;
 }

@@ -1,8 +1,9 @@
 const memorycard = (() => {
     
     function removeItem() {
-        document.getElementById('to-do-container').removeChild(this);
-        saveList();
+        //document.getElementById('to-do-container').removeChild(this);
+        this.parentElement.remove();
+        saveList(); 
     }
 
     function saveList() {

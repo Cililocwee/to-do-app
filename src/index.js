@@ -14,7 +14,7 @@ const dateDisplay = document.createElement('div');
 dateDisplay.classList.add('date-display');
 
 // date and formatting (short form)
-var utc = new Date().toJSON().slice(0,10).replace(/-/g,'-');
+var utc = new Date().toJSON().slice(0, 10).replace(/-/g, '-');
 dateDisplay.innerText = utc;
 
 // todo container
@@ -65,24 +65,40 @@ datetimeinput.type = 'datetime-local';
 // (FUNC) creates a new todolet with value from input box and posts it
 function makeToDolet() {
     if (todoinput.value.length < 1) { return };
+    // create the todolet form
     const newToDoLet = document.createElement('div');
     newToDoLet.innerHTML = `<p>${todoinput.value}</p>`;
     newToDoLet.classList.add('to-do-item');
-    newToDoLet.onclick = memorycard.removeItem;
+    //newToDoLet.onclick = memorycard.removeItem;
+    // create the new datelet (current date/time)
+    const newDateLet = document.createElement('div');
+    newDateLet.classList.add('datelet');
+    // create the new duelet (due date/time)
+    const newDueLet = document.createElement('div');
+    newDueLet.classList.add('duelet');
+
+    // remove button
+    const removebutton = document.createElement('h4');
+    removebutton.innerText = 'x'
+    removebutton.classList.add('remove-button');
+    removebutton.onclick = memorycard.removeItem;
+
+    // **NOTES: This right here is ACTIVELY attaching 
+    // as a consequence of calling this function
     toDoContainer.appendChild(newToDoLet);
-    return newToDoLet;
+    newToDoLet.append(newDateLet, newDueLet, removebutton);
 }
 
 // constructing the page below the header
 viewBox.appendChild(dateCardDiv);
-    dateCardDiv.appendChild(dateDisplay);
-    dateCardDiv.appendChild(todoinput);
-    dateCardDiv.appendChild(datetimeinput);
-    dateCardDiv.appendChild(todoletbutton);
-    dateCardDiv.appendChild(toDoContainer);
-        toDoContainer.appendChild(toDoItem1);
-        toDoContainer.appendChild(toDoItem2);
-        toDoContainer.appendChild(toDoItem3);
+dateCardDiv.append(dateDisplay,
+    todoinput,
+    datetimeinput,
+    todoletbutton,
+    toDoContainer);
+toDoContainer.append(toDoItem1,
+    toDoItem2,
+    toDoItem3);
 
 // adds functionality to the dropdown menu
 const dropbtn = document.querySelector('.dropbtn');
