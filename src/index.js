@@ -1,6 +1,6 @@
 import './styles/style.css'
 import postCards from './functions/postcard';
-
+import dropdown from './functions/dropdown';
 
 // selecting the viewbox
 const viewBox = document.querySelector('.view-box')
@@ -44,5 +44,7 @@ toDoContainer.appendChild(toDoItem3);
 const postbtn = document.querySelector('#post-button');
 postbtn.onclick = postCards.addFullItem;
 
-postCards.loadList;
+const dropbtn = document.querySelector('.dropbtn');
+dropbtn.onclick = dropdown.myFunction;
 
+postCards.loadList;
