@@ -1,9 +1,8 @@
 
 const postCards = (() => {
-    
-    // this is an experiment for debugging
+
     function addFullItem() {
-        const utcShortForm = new Date().toJSON().slice(0,10).replace(/-/g,'/');
+        const utcShortForm = new Date().toJSON().slice(0, 10).replace(/-/g, '/');
         const utcLongForm = new Date().toJSON();
         const newDateCard = document.createElement('div');
         newDateCard.classList.add('date-card');
@@ -12,37 +11,35 @@ const postCards = (() => {
         newDateDisplay.innerText = String(utcShortForm);
 
         const list = document.querySelector('#list');
-        //document.getElementById('list').appendChild(newDateCard);
         list.insertBefore(newDateCard, list.firstChild);
         newDateCard.appendChild(newDateDisplay);
-        
+
         const newContainer = document.createElement('div');
         newContainer.classList.add('to-do-container');
         newDateCard.appendChild(newContainer);
 
 
-        function addItem(){
-            if(box.value.length < 1){return};
+        function addItem() {
+            if (box.value.length < 1) { return };
             const newItem = document.createElement('div');
-            newItem.innerHTML = document.getElementById(utcLongForm).value;
+            newItem.innerHTML = `<p>${document.getElementById(utcLongForm).value}</p>`;
             newItem.classList.add('to-do-item');
             newItem.onclick = removeItem;
-            //newContainer.appendChild(newItem);
             newContainer.appendChild(newItem);
         }
 
-        
+
         const box = document.createElement('input');
         box.type = 'text';
         box.placeholder = 'Enter new note here';
         box.id = utcLongForm;
         box.addEventListener('keypress', (event) => {
-            if(event.key === 'Enter'){
+            if (event.key === 'Enter') {
                 addItem();
                 box.value = '';
             }
         });
-        
+
         const addbtn = document.createElement('button');
         addbtn.classList.add('button-87');
         addbtn.value = "add";
@@ -70,8 +67,8 @@ const postCards = (() => {
         newDateCard.appendChild(newDateDisplay);
         saveList();
     }
-    
-    function addToDoContainer () {
+
+    function addToDoContainer() {
         const newContainer = document.createElement('div');
         newContainer.classList.add('to-do-container');
         newContainer.onclick = removeItem;
@@ -81,7 +78,7 @@ const postCards = (() => {
 
         document.getElementById('list').appendChild(newContainer);
     }
-    
+
     /*function addItem() {
         const newItem = document.createElement('div');
         newItem.innerHTML = document.getElementById("box").value;
@@ -103,7 +100,7 @@ const postCards = (() => {
 
     function loadList() {
         document.getElementById('list').innerHTML = localStorage.storedList;
-        for(let i = 0; i < list.children.length; i++){
+        for (let i = 0; i < list.children.length; i++) {
             list.children[i].onclick = removeItem;
         }
     }

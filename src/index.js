@@ -44,8 +44,5 @@ toDoContainer.appendChild(toDoItem3);
 const postbtn = document.querySelector('#post-button');
 postbtn.onclick = postCards.addFullItem;
 
-//const ncmaker = document.querySelector('#new-card-maker');
-//ncmaker.onclick = postCards.addFullItem;
-//const postcont = document.querySelector('#post-container');
-//postcont.onclick = postCards.addToDoContainer;
+postCards.loadList;
 
