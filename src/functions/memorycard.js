@@ -1,3 +1,5 @@
+import restoration from "./functionality";
+
 const memorycard = (() => {
     
     const container = document.querySelector('#to-do-container');
@@ -25,21 +27,9 @@ const memorycard = (() => {
         //     removebuttonlist[i].onclick = removeItem;
         // }
         // console.log(localStorage)
-        restoreFunctionality();
+        restoration.restoreFunctionality();
     }
-
-    const restoreFunctionality = () =>{
-        const removebuttonlist = document.querySelectorAll('.remove-button');
-            for(let i = 0; i < removebuttonlist.length; i++){
-                removebuttonlist[i].onclick = removeItem;
-                removebuttonlist[i].parentNode.addEventListener('click', (ev) => {
-                    removebuttonlist[i].parentNode.classList.toggle('checked');
-                    saveList();
-                }, false);
-            
-            }
-            console.log(localStorage)
-    }
+    
     return { removeItem, saveList, loadList }
 })();
 
