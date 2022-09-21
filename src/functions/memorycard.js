@@ -19,7 +19,11 @@ const memorycard = (() => {
         const storedItem = localStorage.getItem('storedList');
         const loadItem = JSON.parse(storedItem);
         container.innerHTML = loadItem;
-        console.log(storedItem)
+        const removebuttonlist = document.querySelectorAll('.remove-button');
+        for(let i = 0; i < removebuttonlist.length; i++){
+            removebuttonlist[i].onclick = removeItem;
+        }
+        console.log(localStorage)
     }
     return { removeItem, saveList, loadList }
 })();

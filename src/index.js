@@ -82,6 +82,7 @@ function makeToDolet() {
         newToDoLet.classList.toggle('checked');
     }, false);
 
+    memorycard.saveList();
 }
 
 // adds functionality to the dropdown menu
@@ -89,21 +90,25 @@ const dropbtn = document.querySelector('.dropbtn');
 dropbtn.onclick = dropdown.myFunction;
 
 
-const loadbutton = document.createElement('button');
-loadbutton.value="Load";
-loadbutton.addEventListener('click', ()=>{
-    memorycard.loadList();
-})
+// const loadbutton = document.createElement('button');
+// loadbutton.innerText="Load";
+// loadbutton.classList.add('loadbutton');
+// loadbutton.addEventListener('click', ()=>{
+//     memorycard.loadList();
+// })
 
-const savebutton = document.createElement('button');
-savebutton.value="Save";
-savebutton.addEventListener('click', () =>{
-    memorycard.saveList();
-})
+// const savebutton = document.createElement('button');
+// savebutton.innerText="Save";
+// savebutton.classList.add('savebutton');
+// savebutton.addEventListener('click', () =>{
+//     memorycard.saveList();
+// })
 
-const viewbox = document.querySelector('.view-box');
-viewbox.append(loadbutton, savebutton);
+// const viewbox = document.querySelector('.view-box');
+// viewbox.append(loadbutton, savebutton);
 
+
+window.onload = memorycard.loadList;
 // sets default datetime for the input (not currently working)
 //const datetimeinput = document.querySelector('#datetimeinput');
 //datetimeinput.value= format(new Date(), ('yyyy-MM-ddThh:mm'));

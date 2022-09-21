@@ -1,7 +1,9 @@
 @import url(./buttons.css);
-:root{
+
+:root {
     overflow: auto;
 }
+
 body,
 html {
     height: 100%;
@@ -203,7 +205,7 @@ html {
     position: absolute;
     top: -2px;
     right: 10px;
-    cursor:pointer;
+    cursor: pointer;
 }
 
 .urgentlet {
@@ -218,3 +220,14 @@ html {
     border-top: 5px solid green;
 }
 
+.savebutton,
+.loadbutton {
+    background-color: var(--scottish-background-color);
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
