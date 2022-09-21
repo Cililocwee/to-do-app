@@ -1,10 +1,9 @@
 import './styles/style.css'
 import dropdown from './functions/dropdown';
 import memorycard from './functions/memorycard';
-import { compareAsc, format } from 'date-fns';
+import { format } from 'date-fns';
 
-// selecting the viewbox
-const viewBox = document.querySelector('.view-box')
+memorycard.loadList();
 
 // date and formatting (short form)
 var utc = new Date().toJSON().slice(0, 10).replace(/-/g, '-');
@@ -28,14 +27,15 @@ todoinput.addEventListener('keypress', (event) => {
 const todoletbutton = document.querySelector('.to-do-let-button');
 todoletbutton.onclick = makeToDolet;
 todoletbutton.addEventListener('click', () => {
-    todoinput.value = '';
+    todoinput.value = ''
+    memorycard.saveList;
 })
 
 // (FUNC) creates a new todolet with value from input box and posts it
 function makeToDolet() {
     // length limiter
     if (todoinput.value.length < 1) { return };
-    
+
     // create the todolet form
     const newToDoLet = document.createElement('div');
     newToDoLet.innerHTML = `<p>${todoinput.value}</p>`;
@@ -71,13 +71,20 @@ function makeToDolet() {
 
     // assign priority based on selection
     newToDoLet.classList.add(`${displayRadioValue()}`)
-    
+
+    // Add a "checked" symbol when clicking on a list item
+    newToDoLet.addEventListener('click', (ev) => {
+        newToDoLet.classList.toggle('checked');
+    }, false);
+
 }
 
 // adds functionality to the dropdown menu
 const dropbtn = document.querySelector('.dropbtn');
 dropbtn.onclick = dropdown.myFunction;
 
+
+
 // sets default datetime for the input (not currently working)
-const datetimeinput = document.querySelector('#datetimeinput');
-datetimeinput.value= format(new Date(), ('yyyy-MM-ddThh:mm'));
+//const datetimeinput = document.querySelector('#datetimeinput');
+//datetimeinput.value= format(new Date(), ('yyyy-MM-ddThh:mm'));

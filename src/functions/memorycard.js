@@ -1,20 +1,25 @@
 const memorycard = (() => {
     
+    const container = document.querySelector('#to-do-container');
+
     function removeItem() {
-        //document.getElementById('to-do-container').removeChild(this);
         this.parentElement.remove();
         saveList(); 
     }
 
     function saveList() {
-        localStorage.storedList = document.getElementById('list').innerHTML;
+        const saveItem = JSON.stringify(container.innerHTML);
+        localStorage.setItem('storedList', saveItem);
     }
 
     function loadList() {
-        document.getElementById('list').innerHTML = localStorage.storedList;
-        for (let i = 0; i < list.children.length; i++) {
-            list.children[i].onclick = removeItem;
-        }
+        if(!localStorage.getItem('storedList')){
+            console.log('I am');
+            return};
+        const storedItem = localStorage.getItem('storedList');
+        const loadItem = JSON.parse(storedItem);
+        container.innerHTML = loadItem;
+        console.log(storedItem)
     }
     return { removeItem, saveList, loadList }
 })();
