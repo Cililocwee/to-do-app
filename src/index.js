@@ -38,28 +38,29 @@ window.onload = memorycard.loadList(currentProfile.profilemode)
 // selectable through dropdown menu
 const personalView = document.querySelector('#personal-list');
 personalView.addEventListener('click', () => {
-    // console.log('personal');
+    console.log(`Saving to: ${currentProfile.profilemode}`);
     memorycard.saveList(currentProfile.profilemode)
     currentProfile.ProfileMode = 'personal';
+    console.log(`Loading: ${currentProfile.profilemode}`);
     console.log(currentProfile.profilemode);
     memorycard.loadList('personal');
 });
 
 const businessView = document.querySelector('#business-list');
 businessView.addEventListener('click', () => {
-    // console.log('business');
+    console.log(`Saving to: ${currentProfile.profilemode}`);
     memorycard.saveList(currentProfile.profilemode)
     currentProfile.ProfileMode = 'business';
-    console.log(currentProfile.profilemode);
+    console.log(`Loading: ${currentProfile.profilemode}`);
     memorycard.loadList('business');
 
 });
 
 const otherView = document.querySelector('#other-list');
 otherView.addEventListener('click', () => {
-    // console.log('other');
+    console.log(`Saving to: ${currentProfile.profilemode}`);
     memorycard.saveList(currentProfile.profilemode)
     currentProfile.ProfileMode = 'other';
-    console.log(currentProfile.profilemode);
+    console.log(`Loading: ${currentProfile.profilemode}`);
     memorycard.loadList('other');
 });
