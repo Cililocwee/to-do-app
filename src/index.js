@@ -21,7 +21,7 @@ const todoletbutton = document.querySelector('.to-do-let-button');
 todoletbutton.onclick = ToDoLetFactory.makeToDolet;
 todoletbutton.addEventListener('click', () => {
     todoinput.value = ''
-    memorycard.saveList;
+    memorycard.saveList(currentProfile.profilemode);
 })
 // ***********************************************************
 
@@ -30,28 +30,36 @@ const dropbtn = document.querySelector('.dropbtn');
 dropbtn.onclick = dropdown.myFunction;
 
 
-// reload all saved nodes
-window.onload = memorycard.loadList
+// [Default] reload all saved nodes
+window.onload = memorycard.loadList(currentProfile.profilemode)
+
 
 // adds multiple profiles
-
+// selectable through dropdown menu
 const personalView = document.querySelector('#personal-list');
 personalView.addEventListener('click', () => {
     // console.log('personal');
+    memorycard.saveList(currentProfile.profilemode)
     currentProfile.ProfileMode = 'personal';
     console.log(currentProfile.profilemode);
+    memorycard.loadList('personal');
 });
 
 const businessView = document.querySelector('#business-list');
 businessView.addEventListener('click', () => {
     // console.log('business');
+    memorycard.saveList(currentProfile.profilemode)
     currentProfile.ProfileMode = 'business';
     console.log(currentProfile.profilemode);
+    memorycard.loadList('business');
+
 });
 
 const otherView = document.querySelector('#other-list');
 otherView.addEventListener('click', () => {
     // console.log('other');
+    memorycard.saveList(currentProfile.profilemode)
     currentProfile.ProfileMode = 'other';
     console.log(currentProfile.profilemode);
+    memorycard.loadList('other');
 });
