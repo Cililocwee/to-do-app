@@ -7,10 +7,8 @@ const ToDoLetFactory = (() => {
     const toDoContainer = document.querySelector('.to-do-container');
 
     // date and formatting (short form)
-    var utc = new Date().toJSON().slice(0, 10).replace(/-/g, '-');
     let currentdate = format(new Date(), 'MM/dd/yyyy');
     let currettime = format(new Date(), 'h:mmaaaa');
-    console.log(utc);
     console.log(currentdate);
 
     function makeToDolet() {
@@ -68,6 +66,7 @@ const ToDoLetFactory = (() => {
 
         memorycard.saveList();
     }
+    
     return { makeToDolet }
 })();
 

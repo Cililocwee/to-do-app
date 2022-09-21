@@ -13,6 +13,7 @@ const memorycard = (() => {
     function saveList(section) {
         const saveItem = JSON.stringify(container.innerHTML);
         localStorage.setItem('storedList', saveItem);
+        console.log(saveItem);
     }
 
     function loadList(section) {
