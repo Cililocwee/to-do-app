@@ -11,23 +11,27 @@ const memorycard = (() => {
 
     // save- and loadList should take a variable that signals different sections (business, personal, other)
     function saveList(section) {
+        
         const saveItem = JSON.stringify(container.innerHTML);
-        localStorage.setItem('storedList', saveItem);
+        // localStorage.setItem('storedList', saveItem);
+        localStorage.setItem(section, saveItem);
         console.log(saveItem);
     }
 
     function loadList(section) {
         if(!localStorage.getItem('storedList')){
-            console.log('I am');
+            console.log('nothing in storage');
             return};
-        const storedItem = localStorage.getItem('storedList');
+        const storedItem = localStorage.getItem(section);
         const loadItem = JSON.parse(storedItem);
         container.innerHTML = loadItem;
-        // const removebuttonlist = document.querySelectorAll('.remove-button');
-        // for(let i = 0; i < removebuttonlist.length; i++){
-        //     removebuttonlist[i].onclick = removeItem;
-        // }
-        // console.log(localStorage)
+
+        // if(!localStorage.getItem('storedList')){
+        //     console.log('I am');
+        //     return};
+        // const storedItem = localStorage.getItem('storedList');
+        // const loadItem = JSON.parse(storedItem);
+        // container.innerHTML = loadItem;
         restoration.restoreFunctionality();
     }
     

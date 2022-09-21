@@ -2,6 +2,7 @@ import './styles/style.css'
 import dropdown from './functions/dropdown';
 import memorycard from './functions/memorycard';
 import ToDoLetFactory from './functions/todolets';
+import currentProfile from './functions/globalvariable';
 
 
 // constructs persistent elements in the HTML 
@@ -10,7 +11,7 @@ import ToDoLetFactory from './functions/todolets';
 const todoinput = document.querySelector('#to-do-input');
 todoinput.addEventListener('keypress', (event) => {
     if (event.key === 'Enter') {
-       ToDoLetFactory.makeToDolet();
+        ToDoLetFactory.makeToDolet();
         todoinput.value = '';
     }
 });
@@ -33,11 +34,24 @@ dropbtn.onclick = dropdown.myFunction;
 window.onload = memorycard.loadList
 
 // adds multiple profiles
+
 const personalView = document.querySelector('#personal-list');
-personalView.addEventListener('click', () =>{console.log('personal');});
+personalView.addEventListener('click', () => {
+    // console.log('personal');
+    currentProfile.ProfileMode = 'personal';
+    console.log(currentProfile.profilemode);
+});
 
 const businessView = document.querySelector('#business-list');
-businessView.addEventListener('click', () =>{console.log('business');});
+businessView.addEventListener('click', () => {
+    // console.log('business');
+    currentProfile.ProfileMode = 'business';
+    console.log(currentProfile.profilemode);
+});
 
 const otherView = document.querySelector('#other-list');
-otherView.addEventListener('click', () =>{console.log('other');});
+otherView.addEventListener('click', () => {
+    // console.log('other');
+    currentProfile.ProfileMode = 'other';
+    console.log(currentProfile.profilemode);
+});
