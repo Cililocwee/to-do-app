@@ -3,7 +3,7 @@ import dropdown from './functions/dropdown';
 import memorycard from './functions/memorycard';
 import { format } from 'date-fns';
 
-memorycard.loadList();
+//memorycard.loadList();
 
 // date and formatting (short form)
 var utc = new Date().toJSON().slice(0, 10).replace(/-/g, '-');
@@ -49,7 +49,12 @@ function makeToDolet() {
     // create the new duelet (due date/time)
     const newDueLet = document.createElement('div');
     newDueLet.classList.add('duelet');
-    newDueLet.innerText = `Due: ${document.querySelector('#datetimeinput').value}`;
+    const currentdatetime = document.querySelector('#datetimeinput').value;
+    if(currentdatetime != ""){
+        newDueLet.innerText = `Due: ${currentdatetime}`;
+        }else{
+            newDueLet.innerText = 'No due date'
+        }
 
     // create the remove button
     const removebutton = document.createElement('h4');
