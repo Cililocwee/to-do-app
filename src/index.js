@@ -3,7 +3,7 @@ import dropdown from './functions/dropdown';
 import memorycard from './functions/memorycard';
 import { format } from 'date-fns';
 
-//memorycard.loadList();
+
 
 // date and formatting (short form)
 var utc = new Date().toJSON().slice(0, 10).replace(/-/g, '-');
@@ -89,6 +89,20 @@ const dropbtn = document.querySelector('.dropbtn');
 dropbtn.onclick = dropdown.myFunction;
 
 
+const loadbutton = document.createElement('button');
+loadbutton.value="Load";
+loadbutton.addEventListener('click', ()=>{
+    memorycard.loadList();
+})
+
+const savebutton = document.createElement('button');
+savebutton.value="Save";
+savebutton.addEventListener('click', () =>{
+    memorycard.saveList();
+})
+
+const viewbox = document.querySelector('.view-box');
+viewbox.append(loadbutton, savebutton);
 
 // sets default datetime for the input (not currently working)
 //const datetimeinput = document.querySelector('#datetimeinput');
