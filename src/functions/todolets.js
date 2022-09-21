@@ -1,5 +1,6 @@
 import { format } from "date-fns";
 import memorycard from "./memorycard";
+import currentProfile from "./globalvariable";
 
 const ToDoLetFactory = (() => {
 
@@ -61,10 +62,10 @@ const ToDoLetFactory = (() => {
         // Add a "checked" symbol when clicking on a list item
         newToDoLet.addEventListener('click', (ev) => {
             newToDoLet.classList.toggle('checked');
-            memorycard.saveList();
+            memorycard.saveList(currentProfile.profilemode);
         }, false);
 
-        memorycard.saveList();
+        memorycard.saveList(currentProfile.profilemode);
     }
     
     return { makeToDolet }

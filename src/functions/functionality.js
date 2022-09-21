@@ -1,4 +1,5 @@
 import memorycard from "./memorycard";
+import currentProfile from "./globalvariable";
 
 const restoration = (() =>{
     const restoreFunctionality = () =>{
@@ -7,7 +8,7 @@ const restoration = (() =>{
                 removebuttonlist[i].onclick = memorycard.removeItem;
                 removebuttonlist[i].parentNode.addEventListener('click', (ev) => {
                     removebuttonlist[i].parentNode.classList.toggle('checked');
-                    memorycard.saveList();
+                    memorycard.saveList(currentProfile.profilemode);
                 }, false);
             
             }

@@ -1,4 +1,5 @@
 import restoration from "./functionality";
+import currentProfile from "./globalvariable";
 
 const memorycard = (() => {
     
@@ -6,7 +7,7 @@ const memorycard = (() => {
 
     function removeItem() {
         this.parentElement.remove();
-        saveList(); 
+        saveList(currentProfile.profilemode); 
     }
 
     // save- and loadList should take a variable that signals different sections (business, personal, other)
