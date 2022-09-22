@@ -18,7 +18,7 @@ const memorycard = (() => {
     }
 
     function loadList(section) {
-        if(!localStorage.getItem('storedList')){
+        if(!localStorage.getItem(section)){
             console.log('nothing in storage');
             return};
         const storedItem = localStorage.getItem(section);
