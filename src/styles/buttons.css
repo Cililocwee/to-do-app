@@ -42,10 +42,6 @@
     width: 150px;
 }
 
-.dropbtn::first-letter {
-    text-transform: capitalize;
-}
-
 /* Dropdown button on hover & focus */
 .dropbtn:hover,
 .dropbtn:focus {
