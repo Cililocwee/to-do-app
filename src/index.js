@@ -3,6 +3,7 @@ import dropdown from './functions/dropdown';
 import memorycard from './functions/memorycard';
 import ToDoLetFactory from './functions/todolets';
 import currentProfile from './functions/globalvariable';
+import DropDownUpdate from './functions/dropdownupdate';
 
 
 // constructs persistent elements in the HTML 
@@ -30,6 +31,8 @@ const dropbtn = document.querySelector('.dropbtn');
 dropbtn.onclick = dropdown.myFunction;
 
 
+
+
 // [Default] reload all saved nodes
 window.onload = memorycard.loadList(currentProfile.profilemode)
 
@@ -44,6 +47,7 @@ personalView.addEventListener('click', () => {
     console.log(`Loading: ${currentProfile.profilemode}`);
     console.log(currentProfile.profilemode);
     memorycard.loadList('personal');
+    DropDownUpdate.updateText();
 });
 
 const businessView = document.querySelector('#business-list');
@@ -53,7 +57,7 @@ businessView.addEventListener('click', () => {
     currentProfile.ProfileMode = 'business';
     console.log(`Loading: ${currentProfile.profilemode}`);
     memorycard.loadList('business');
-
+    DropDownUpdate.updateText();
 });
 
 const otherView = document.querySelector('#other-list');
@@ -63,4 +67,5 @@ otherView.addEventListener('click', () => {
     currentProfile.ProfileMode = 'other';
     console.log(`Loading: ${currentProfile.profilemode}`);
     memorycard.loadList('other');
+    DropDownUpdate.updateText();
 });

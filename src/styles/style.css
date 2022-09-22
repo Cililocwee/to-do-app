@@ -143,6 +143,19 @@ html {
     text-decoration: line-through;
 }
 
+.checked-in-waiting {
+    content: '';
+    position: absolute;
+    border-color: green;
+    border-style: solid;
+    border-width: 0 2px 2px 0;
+    top: 15px;
+    left: 10px;
+    transform: rotate(45deg);
+    height: 15px;
+    width: 7px;
+}
+
 /* Add a "checked" mark when clicked on */
 .checked::before {
     content: '';
@@ -205,6 +218,13 @@ html {
     position: absolute;
     top: -2px;
     right: 10px;
+    cursor: pointer;
+}
+
+.edit-button {
+    position: absolute;
+    top: -4px;
+    left: 4px;
     cursor: pointer;
 }
 
