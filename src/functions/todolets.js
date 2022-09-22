@@ -12,7 +12,7 @@ const ToDoLetFactory = (() => {
     let currettime = format(new Date(), 'h:mmaaaa');
     console.log(currentdate);
 
-    function makeToDolet() {
+    function assembleToDoLet() {
         const todoinput = document.querySelector('#to-do-input');
 
         // length limiter
@@ -56,7 +56,7 @@ const ToDoLetFactory = (() => {
         // **NOTES: This right here is ACTIVELY attaching 
         // as a consequence of calling this function
         toDoContainer.appendChild(newToDoLet);
-        newToDoLet.append(editButton, newToDoLetP, newDateLet, newDueLet, removebutton);
+        newToDoLet.append(newToDoLetP, newDateLet, newDueLet, removebutton);
 
         // assign priority based on selection
         newToDoLet.classList.add(`${displayRadioValue()}`)
@@ -70,7 +70,7 @@ const ToDoLetFactory = (() => {
         memorycard.saveList(currentProfile.profilemode);
     }
     
-    return { makeToDolet }
+    return { assembleToDoLet }
 })();
 
 export default ToDoLetFactory;

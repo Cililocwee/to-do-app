@@ -1,10 +1,12 @@
 import './styles/style.css'
-import dropdown from './functions/dropdown';
-import memorycard from './functions/memorycard';
-import ToDoLetFactory from './functions/todolets';
-import currentProfile from './functions/globalvariable';
-import DropDownUpdate from './functions/dropdownupdate';
+import dropdown from './functions/dropdown.js';
+import memorycard from './functions/memorycard.js';
+import ToDoLetFactory from './functions/todolets.js';
+import currentProfile from './functions/globalvariable.js';
+import DropDownUpdate from './functions/dropdownupdate.js';
 
+// [Default] reload all saved nodes
+window.onload = memorycard.loadList(currentProfile.profilemode)
 
 // constructs persistent elements in the HTML 
 // *********************************************************
@@ -12,14 +14,14 @@ import DropDownUpdate from './functions/dropdownupdate';
 const todoinput = document.querySelector('#to-do-input');
 todoinput.addEventListener('keypress', (event) => {
     if (event.key === 'Enter') {
-        ToDoLetFactory.makeToDolet();
+        ToDoLetFactory.assembleToDoLet();
         todoinput.value = '';
     }
 });
 
 // select the todolet button and add functionality
 const todoletbutton = document.querySelector('.to-do-let-button');
-todoletbutton.onclick = ToDoLetFactory.makeToDolet;
+todoletbutton.onclick = ToDoLetFactory.assembleToDoLet;
 todoletbutton.addEventListener('click', () => {
     todoinput.value = ''
     memorycard.saveList(currentProfile.profilemode);
@@ -33,8 +35,7 @@ dropbtn.onclick = dropdown.myFunction;
 
 
 
-// [Default] reload all saved nodes
-window.onload = memorycard.loadList(currentProfile.profilemode)
+
 
 
 // adds multiple profiles
