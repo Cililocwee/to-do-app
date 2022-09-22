@@ -19,10 +19,11 @@ const ToDoLetFactory = (() => {
 
         // create the todolet form
         const newToDoLet = document.createElement('div');
+        // newToDoLet.innerHTML = `<p>${todoinput.value}</p>`;
         const newToDoLetP = document.createElement('p');
         newToDoLetP.innerText = todoinput.value;
         newToDoLet.classList.add('to-do-item');
-        // newToDoLetP.contentEditable = true;
+        newToDoLetP.contentEditable = true;
 
         // create the new datelet (current date/time)
         const newDateLet = document.createElement('div');
@@ -61,7 +62,7 @@ const ToDoLetFactory = (() => {
         // **NOTES: This right here is ACTIVELY attaching 
         // as a consequence of calling this function
         toDoContainer.appendChild(newToDoLet);
-        newToDoLet.append(editButton, newToDoLetP, newDateLet, newDueLet, removebutton);
+        newToDoLet.append(newToDoLetP, newDateLet, newDueLet, removebutton);
 
         // assign priority based on selection
         newToDoLet.classList.add(`${displayRadioValue()}`)

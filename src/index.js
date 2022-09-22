@@ -3,7 +3,6 @@ import dropdown from './functions/dropdown';
 import memorycard from './functions/memorycard';
 import ToDoLetFactory from './functions/todolets';
 import currentProfile from './functions/globalvariable';
-import DropDownUpdate from './functions/dropdownupdate';
 
 
 // constructs persistent elements in the HTML 
@@ -30,6 +29,10 @@ todoletbutton.addEventListener('click', () => {
 const dropbtn = document.querySelector('.dropbtn');
 dropbtn.onclick = dropdown.myFunction;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> bdaefb0c7c9a53b6a9a21d2bce284f1e5ba91b38
 // [Default] reload all saved nodes
 // window.onload = memorycard.loadList(currentProfile.profilemode)
 window.onload = memorycard.loadList('personal');
@@ -47,7 +50,6 @@ personalView.addEventListener('click', () => {
     // load personal
     console.log(`Loading: ${currentProfile.profilemode}`);
     memorycard.loadList('personal');
-    DropDownUpdate.updateText();
 });
 
 const businessView = document.querySelector('#business-list');
@@ -60,7 +62,7 @@ businessView.addEventListener('click', () => {
     // load business
     console.log(`Loading: ${currentProfile.profilemode}`);
     memorycard.loadList('business');
-    DropDownUpdate.updateText();
+
 });
 
 const otherView = document.querySelector('#other-list');
@@ -73,5 +75,9 @@ otherView.addEventListener('click', () => {
     // load other
     console.log(`Loading: ${currentProfile.profilemode}`);
     memorycard.loadList('other');
+<<<<<<< HEAD
     DropDownUpdate.updateText();
 });*/
+=======
+});
+>>>>>>> bdaefb0c7c9a53b6a9a21d2bce284f1e5ba91b38
