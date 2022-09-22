@@ -30,31 +30,34 @@ todoletbutton.addEventListener('click', () => {
 const dropbtn = document.querySelector('.dropbtn');
 dropbtn.onclick = dropdown.myFunction;
 
-
-
-
 // [Default] reload all saved nodes
-window.onload = memorycard.loadList(currentProfile.profilemode)
+// window.onload = memorycard.loadList(currentProfile.profilemode)
+window.onload = memorycard.loadList('personal');
 
 
 // adds multiple profiles
 // selectable through dropdown menu
-const personalView = document.querySelector('#personal-list');
+/*const personalView = document.querySelector('#personal-list');
 personalView.addEventListener('click', () => {
+    // save the current list
     console.log(`Saving to: ${currentProfile.profilemode}`);
     memorycard.saveList(currentProfile.profilemode)
+    // change to personal
     currentProfile.ProfileMode = 'personal';
+    // load personal
     console.log(`Loading: ${currentProfile.profilemode}`);
-    console.log(currentProfile.profilemode);
     memorycard.loadList('personal');
     DropDownUpdate.updateText();
 });
 
 const businessView = document.querySelector('#business-list');
 businessView.addEventListener('click', () => {
+    // save the current list
     console.log(`Saving to: ${currentProfile.profilemode}`);
     memorycard.saveList(currentProfile.profilemode)
+    // change to business
     currentProfile.ProfileMode = 'business';
+    // load business
     console.log(`Loading: ${currentProfile.profilemode}`);
     memorycard.loadList('business');
     DropDownUpdate.updateText();
@@ -62,10 +65,13 @@ businessView.addEventListener('click', () => {
 
 const otherView = document.querySelector('#other-list');
 otherView.addEventListener('click', () => {
+    //save the current list
     console.log(`Saving to: ${currentProfile.profilemode}`);
     memorycard.saveList(currentProfile.profilemode)
+    // change to other
     currentProfile.ProfileMode = 'other';
+    // load other
     console.log(`Loading: ${currentProfile.profilemode}`);
     memorycard.loadList('other');
     DropDownUpdate.updateText();
-});
+});*/
