@@ -13,6 +13,7 @@ const memorycard = (() => {
     // save- and loadList should take a variable that signals different sections (business, personal, other)
     function saveList(section) {
         const saveItem = JSON.stringify(container.innerHTML);
+        // localStorage.setItem('storedList', saveItem);
         localStorage.setItem(section, saveItem);
         console.log(saveItem);
     }
@@ -25,6 +26,12 @@ const memorycard = (() => {
         const loadItem = JSON.parse(storedItem);
         container.innerHTML = loadItem;
 
+        // if(!localStorage.getItem('storedList')){
+        //     console.log('I am');
+        //     return};
+        // const storedItem = localStorage.getItem('storedList');
+        // const loadItem = JSON.parse(storedItem);
+        // container.innerHTML = loadItem;
         restoration.restoreFunctionality();
     }
     

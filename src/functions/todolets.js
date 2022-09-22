@@ -10,7 +10,6 @@ const ToDoLetFactory = (() => {
     // date and formatting (short form)
     let currentdate = format(new Date(), 'MM/dd/yyyy');
     let currettime = format(new Date(), 'h:mmaaaa');
-    console.log(currentdate);
 
     function assembleToDoLet() {
         const todoinput = document.querySelector('#to-do-input');
@@ -20,10 +19,11 @@ const ToDoLetFactory = (() => {
 
         // create the todolet form
         const newToDoLet = document.createElement('div');
+        // newToDoLet.innerHTML = `<p>${todoinput.value}</p>`;
         const newToDoLetP = document.createElement('p');
         newToDoLetP.innerText = todoinput.value;
         newToDoLet.classList.add('to-do-item');
-        // newToDoLetP.contentEditable = true;
+        newToDoLetP.contentEditable = true;
 
         // create the new datelet (current date/time)
         const newDateLet = document.createElement('div');
@@ -45,6 +45,12 @@ const ToDoLetFactory = (() => {
         removebutton.innerText = 'x'
         removebutton.classList.add('remove-button');
         removebutton.onclick = memorycard.removeItem;
+
+        // creates an edit button
+        const editButton = document.createElement('h4');
+        editButton.innerText='e';
+        editButton.classList.add('edit-button') ;
+        // editButton.onclick = alert('I am an edit button');
 
         // get value from radio buttons
         function displayRadioValue() {
