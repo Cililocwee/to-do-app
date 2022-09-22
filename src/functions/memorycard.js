@@ -12,7 +12,6 @@ const memorycard = (() => {
 
     // save- and loadList should take a variable that signals different sections (business, personal, other)
     function saveList(section) {
-        
         const saveItem = JSON.stringify(container.innerHTML);
         // localStorage.setItem('storedList', saveItem);
         localStorage.setItem(section, saveItem);

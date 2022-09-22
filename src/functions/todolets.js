@@ -11,7 +11,7 @@ const ToDoLetFactory = (() => {
     let currentdate = format(new Date(), 'MM/dd/yyyy');
     let currettime = format(new Date(), 'h:mmaaaa');
 
-    function makeToDolet() {
+    function assembleToDoLet() {
         const todoinput = document.querySelector('#to-do-input');
 
         // length limiter
@@ -76,7 +76,7 @@ const ToDoLetFactory = (() => {
         memorycard.saveList(currentProfile.profilemode);
     }
     
-    return { makeToDolet }
+    return { assembleToDoLet }
 })();
 
 export default ToDoLetFactory;
