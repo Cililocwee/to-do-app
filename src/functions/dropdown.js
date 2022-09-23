@@ -1,3 +1,5 @@
+import currentProfile from "./globalvariable";
+
 const dropdown = (() => {
 
     /* When the user clicks on the button,
@@ -21,7 +23,12 @@ const dropdown = (() => {
         }
     }
 
-    return { myFunction }
+    function DropDownUpdate() {
+        const dropdowndisplay = document.querySelector('.dropbtn');
+        dropdowndisplay.innerText = currentProfile.profilemode;
+    }
+
+    return { myFunction, DropDownUpdate }
 })();
 
 export default dropdown;

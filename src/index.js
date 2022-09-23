@@ -31,6 +31,7 @@ todoletbutton.addEventListener('click', () => {
 const dropbtn = document.querySelector('.dropbtn');
 dropbtn.onclick = dropdown.myFunction;
 
+
 // [Default] reload all saved nodes
 // window.onload = memorycard.loadList(currentProfile.profilemode)
 window.onload = memorycard.loadList('personal');
@@ -49,6 +50,8 @@ personalView.addEventListener('click', () => {
     // load personal
     console.log(`Loading: ${currentProfile.profilemode}`);
     memorycard.loadList('personal');
+    // update the dropdown display
+    dropdown.DropDownUpdate();
 });
 
 const businessView = document.querySelector('#business-list');
@@ -61,7 +64,8 @@ businessView.addEventListener('click', () => {
     // load business
     console.log(`Loading: ${currentProfile.profilemode}`);
     memorycard.loadList('business');
-
+    // update the dropdown display
+    dropdown.DropDownUpdate();
 });
 
 const otherView = document.querySelector('#other-list');
@@ -74,5 +78,6 @@ otherView.addEventListener('click', () => {
     // load other
     console.log(`Loading: ${currentProfile.profilemode}`);
     memorycard.loadList('other');
-    // DropDownUpdate.updateText();
+    // update the dropdown display
+    dropdown.DropDownUpdate();
 });
