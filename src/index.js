@@ -1,7 +1,7 @@
 import './styles/style.css'
 import dropdown from './functions/dropdown';
 import memorycard from './functions/memorycard';
-import ToDoLetFactory from './functions/todolets';
+import ToDoLetConstruction from './functions/todolets';
 import currentProfile from './functions/globalvariable';
 
 // [Default] reload all saved nodes
@@ -13,14 +13,14 @@ window.onload = memorycard.loadList(currentProfile.profilemode)
 const todoinput = document.querySelector('#to-do-input');
 todoinput.addEventListener('keypress', (event) => {
     if (event.key === 'Enter') {
-        ToDoLetFactory.assembleToDoLet();
+        ToDoLetConstruction.putTDTogether();
         todoinput.value = '';
     }
 });
 
 // select the todolet button and add functionality
 const todoletbutton = document.querySelector('.to-do-let-button');
-todoletbutton.onclick = ToDoLetFactory.assembleToDoLet;
+todoletbutton.onclick = ToDoLetConstruction.putTDTogether;
 todoletbutton.addEventListener('click', () => {
     todoinput.value = ''
     memorycard.saveList(currentProfile.profilemode);
