@@ -66,10 +66,13 @@ const ToDoLetConstruction = (() => {
         const datelet = makeDateLet();
         const duelet = makeDueLet();
         const removebutton = makeRemoveButton();
+        const duedateletbox = document.createElement('div');
+        duedateletbox.classList.add("duedateletbox");
 
         // append the pieces to make the whole todolet
         toDoContainer.appendChild(form);
-        form.append(todoP, datelet, duelet, removebutton);
+        duedateletbox.append(datelet, duelet)
+        form.append(todoP, duedateletbox, removebutton);
 
         // assign priority based on selection
         form.classList.add(`${getRadioValue()}`)

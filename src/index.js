@@ -28,8 +28,8 @@ todoletbutton.addEventListener('click', () => {
 // ***********************************************************
 
 // adds functionality to the dropdown menu
-const dropbtn = document.querySelector('.dropbtn');
-dropbtn.onclick = dropdown.myFunction;
+// const dropbtn = document.querySelector('.dropbtn');
+// dropbtn.onclick = dropdown.myFunction;
 
 
 // [Default] reload all saved nodes
@@ -43,41 +43,41 @@ window.onload = memorycard.loadList('personal');
 const personalView = document.querySelector('#personal-list');
 personalView.addEventListener('click', () => {
     // save the current list
-    console.log(`Saving to: ${currentProfile.profilemode}`);
+    // console.log(`Saving to: ${currentProfile.profilemode}`);
     memorycard.saveList(currentProfile.profilemode)
     // change to personal
     currentProfile.ProfileMode = 'personal';
     // load personal
-    console.log(`Loading: ${currentProfile.profilemode}`);
+    // console.log(`Loading: ${currentProfile.profilemode}`);
     memorycard.loadList('personal');
     // update the dropdown display
-    dropdown.DropDownUpdate();
+    // dropdown.DropDownUpdate();
 });
 
 const businessView = document.querySelector('#business-list');
 businessView.addEventListener('click', () => {
     // save the current list
-    console.log(`Saving to: ${currentProfile.profilemode}`);
+    // console.log(`Saving to: ${currentProfile.profilemode}`);
     memorycard.saveList(currentProfile.profilemode)
     // change to business
     currentProfile.ProfileMode = 'business';
     // load business
-    console.log(`Loading: ${currentProfile.profilemode}`);
+    // console.log(`Loading: ${currentProfile.profilemode}`);
     memorycard.loadList('business');
     // update the dropdown display
-    dropdown.DropDownUpdate();
+    // dropdown.DropDownUpdate();
 });
 
 const otherView = document.querySelector('#other-list');
 otherView.addEventListener('click', () => {
     //save the current list
-    console.log(`Saving to: ${currentProfile.profilemode}`);
+    // console.log(`Saving to: ${currentProfile.profilemode}`);
     memorycard.saveList(currentProfile.profilemode)
     // change to other
     currentProfile.ProfileMode = 'other';
     // load other
-    console.log(`Loading: ${currentProfile.profilemode}`);
+    // console.log(`Loading: ${currentProfile.profilemode}`);
     memorycard.loadList('other');
     // update the dropdown display
-    dropdown.DropDownUpdate();
+    // dropdown.DropDownUpdate();
 });

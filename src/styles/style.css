@@ -1,86 +1,104 @@
 @import url(./buttons.css);
+@import url("https://fonts.googleapis.com/css?family=Spartan&display=swap");
+
 
 :root {
     overflow: auto;
+
+    --primary-dark: #303f9f;
+    --primary-light: #c5cae9;
+    --primary: #3f51b5;
+    --text-icons: #ffffff;
+    --accent-color: #ff5722;
+    --primary-text: #212121;
+    --secondary-text: #757575;
+    --divider: #bdbdbd;
+
+    --shadow-default: text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 body,
 html {
-    height: 100%;
-    overflow: auto;
-    width: 100%;
+    height: auto;
+    width: -webkit-fill-available;
     margin: 0;
     display: flex;
     align-items: center;
     flex-direction: column;
-    background-image: url('../assets/scottish-highlands.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    --scottish-background: repeating-linear-gradient(45deg, transparent, transparent 46px, rgba(255, 0, 0, .2) 46px, rgba(255, 0, 0, .2) 49px, rgba(255, 255, 255, .5) 49px, rgba(255, 255, 255, .5) 50px, transparent 50px, transparent 56px, rgba(255, 255, 255, .5) 56px, rgba(255, 255, 255, .5) 57px, rgba(255, 0, 0, 0.2) 57px, rgba(255, 0, 0, 0.2) 60px, transparent 60px, transparent 80px),
-        repeating-linear-gradient(135deg, transparent, transparent 46px, rgba(255, 0, 0, .2) 46px, rgba(255, 0, 0, .2) 49px, rgba(255, 255, 255, .5) 49px, rgba(255, 255, 255, .5) 50px, transparent 50px, transparent 56px, rgba(255, 255, 255, .5) 56px, rgba(255, 255, 255, .5) 57px, rgba(255, 0, 0, 0.2) 57px, rgba(255, 0, 0, 0.2) 60px, transparent 60px, transparent 80px),
-        repeating-linear-gradient(45deg, transparent, transparent 31px, rgba(0, 0, 0, .3) 31px, rgba(0, 0, 0, .3) 32px, transparent 32px, transparent 34px, rgba(0, 0, 0, .3) 34px, rgba(0, 0, 0, .3) 35px, transparent 35px, transparent 40px),
-        repeating-linear-gradient(135deg, transparent, transparent 31px, rgba(0, 0, 0, .3) 31px, rgba(0, 0, 0, .3) 32px, transparent 32px, transparent 34px, rgba(0, 0, 0, .3) 34px, rgba(0, 0, 0, .3) 35px, transparent 35px, transparent 40px),
-        repeating-linear-gradient(45deg, transparent, transparent 11px, rgba(255, 0, 0, .3) 11px, rgba(255, 0, 0, .3) 12px, transparent 12px, transparent 14px, rgba(255, 0, 0, .3) 14px, rgba(255, 0, 0, .3) 15px, transparent 15px, transparent 80px),
-        repeating-linear-gradient(135deg, transparent, transparent 11px, rgba(255, 0, 0, .3) 11px, rgba(255, 0, 0, .3) 12px, transparent 12px, transparent 14px, rgba(255, 0, 0, .3) 14px, rgba(255, 0, 0, .3) 15px, transparent 15px, transparent 80px),
-        repeating-linear-gradient(45deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3) 6px, rgba(13, 29, 45, .4) 6px, rgba(13, 29, 45, .4) 20px, rgba(0, 0, 0, .3) 20px, rgba(0, 0, 0, .3) 26px, transparent 26px, transparent 40px),
-        repeating-linear-gradient(135deg, rgba(0, 0, 0, .3), rgba(0, 0, 0, .3) 6px, rgba(13, 29, 45, .4) 6px, rgba(13, 29, 45, .4) 20px, rgba(0, 0, 0, .3) 20px, rgba(0, 0, 0, .3) 26px, transparent 26px, transparent 40px);
-    --scottish-box-shadow: 5px 5px 5px #555;
-    --scottish-background-color: #0a3c1c;
+    font-family: 'Spartan';
+    font-size: 1em;
+    font-weight: 600;
 }
 
 .content {
-    background: red;
     width: 900px;
     height: fit-content;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 50px;
-    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
-    border-radius: 5px;
     position: relative;
-    z-index: 1;
-    background: inherit;
-    margin-top: 150px;
+    margin-top: 25px;
 }
 
-.content::before {
-    content: "";
-    position: absolute;
-    background: inherit;
-    z-index: -1;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5);
-    filter: blur(5px);
-    margin: -20px;
+@media all and (max-width: 768px) {
+    .content {
+        width: 600px;
+    }
 }
 
 .header {
-    /*background: orange;*/
     width: 100%;
     height: 50px;
-    position: fixed;
-    box-shadow: var(--scottish-box-shadow);
-    background: var(--scottish-background);
-    background-color: var(--scottish-background-color);
-    z-index: 2;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+    background-color: var(--primary);
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    align-items: center;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    z-index: 1;
+}
+.navtab{
+    height: 100%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    box-shadow: var(--shadow-default);
+    background-color: var(--accent-color);
+   /* Safari */
+   -webkit-user-select: none;
+   /* Firefox */
+   -moz-user-select: none;
+   /* IE10+/Edge */
+   -ms-user-select: none;
+   /* Standard */
+   user-select: none;
+}
+
+.navtab:hover {
+    background-color: var(--primary-light);
+}
+
+.to-do-let-button {
+    border-radius: 5px;
+    background-color: var(--accent-color);
+    margin: 10px;
+    padding: 5px 15px;
+    color: var(--primary-text);
+    font-weight: 600;
 }
 
 .view-box {
-    /*background: yellow;*/
     width: 100%;
     height: fit-content;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-top: 25px;
-    /*background-color: rgba(255, 255, 255, .15);
-    backdrop-filter: blur(0px);*/
 }
 
 #list {
@@ -92,7 +110,7 @@ html {
 }
 
 .date-card {
-    background: var(--scottish-background-color);
+    background: var(--primary);
     height: fit-content;
     padding: 15px;
     width: 75%;
@@ -105,7 +123,6 @@ html {
 }
 
 .to-do-container {
-    /*background: indigo;*/
     height: fit-content;
     min-height: 25px;
     width: 90%;
@@ -116,7 +133,7 @@ html {
 }
 
 .to-do-item {
-    background: white;
+    background: var(--text-icons);
     width: 90%;
     height: fit-content;
     justify-content: center;
@@ -124,9 +141,21 @@ html {
     border-radius: 10px;
     padding: 10px;
     align-items: center;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction: column;
     position: relative;
+}
+
+.duedateletbox {
+    display: flex;
+    gap: 5px;
+    justify-content: space-between;
+    width: 100%;
+}
+@media all and (max-width: 768px) {
+    .duedateletbox {
+        flex-direction: column;
+    }
 }
 
 .to-do-item p {
@@ -138,8 +167,8 @@ html {
 
 /* When clicked on, add a background color and strike out text */
 .checked {
-    background: #888;
-    color: #fff;
+    background: var(--primary-light);
+    color: var(--text-icons);
     text-decoration: line-through;
 }
 
@@ -147,7 +176,7 @@ html {
 .checked::before {
     content: '';
     position: absolute;
-    border-color: #fff;
+    border-color: var(--text-icons);
     border-style: solid;
     border-width: 0 2px 2px 0;
     top: 15px;
@@ -163,42 +192,51 @@ html {
     margin: 5px;
 }
 
+@media all and (max-width: 768px) {
+    .to-do-input,
+    .date-time-input {
+        width: 100%;
+    }
+}
+
 #urgencystatus {
     width: 300px;
     display: flex;
     justify-content: space-evenly;
     height: 30px;
-    background-color: aliceblue;
+    background-color: var(--text-icons);
     padding: 5px 15px;
     align-items: center;
     margin: 5px;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 .datelet {
     width: fit-content;
     padding: 5px;
-    color: white;
+    color: var(--primary-text);
     height: 25px;
-    background-color: #0a3c1c;
+    background-color: var(--divider);
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 10px;
     justify-self: center;
+    font-size: .75em;
 }
 
 .duelet {
     width: fit-content;
     padding: 5px;
-    color: white;
+    color: var(--text-icons);
     height: 25px;
-    background-color: #555;
+    background-color: var(--primary-dark);
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 10px;
     justify-self: center;
+    font-size: .75em;
 }
 
 .remove-button {
@@ -209,20 +247,20 @@ html {
 }
 
 .urgentlet {
-    border-top: 5px solid red;
+    border-top: 8px solid red;
 }
 
 .prioritylet {
-    border-top: 5px solid yellow;
+    border-top: 8px solid yellow;
 }
 
 .lowlet {
-    border-top: 5px solid green;
+    border-top: 8px solid green;
 }
 
 .savebutton,
 .loadbutton {
-    background-color: var(--scottish-background-color);
+    background-color: var(--accent-color);
     border: none;
     color: white;
     padding: 15px 32px;
