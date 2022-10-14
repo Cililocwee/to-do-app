@@ -113,7 +113,6 @@ html {
     background: var(--primary);
     height: fit-content;
     padding: 15px;
-    width: 75%;
     display: flex;
     flex-direction: column;
     justify-content: center;
