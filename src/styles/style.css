@@ -31,7 +31,7 @@ html {
 }
 
 .content {
-    width: 900px;
+    width: fit-content;
     height: fit-content;
     display: flex;
     flex-direction: column;
@@ -210,32 +210,28 @@ html {
     border-radius: 5px;
 }
 
-.datelet {
+
+.minicard {
     width: fit-content;
+    height: fit-content;
     padding: 5px;
-    color: var(--primary-text);
-    height: 25px;
-    background-color: var(--divider);
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 10px;
     justify-self: center;
     font-size: .75em;
+    text-align: center;
+}
+
+.datelet {
+    color: var(--primary-text);
+    background-color: var(--divider);
 }
 
 .duelet {
-    width: fit-content;
-    padding: 5px;
     color: var(--text-icons);
-    height: 25px;
     background-color: var(--primary-dark);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-    justify-self: center;
-    font-size: .75em;
 }
 
 .remove-button {

@@ -4,6 +4,24 @@ import currentProfile from "./globalvariable";
 
 const ToDoLetConstruction = (() => {
 
+    function formatTime(string){
+        let year = string.slice(0,4);
+        let month = string.slice(5,7);
+        let day = string.slice(8,10);
+        let time = string.slice(11,16);
+        let ampm;
+        if (parseInt(time.slice(0,2)) < 12){
+          ampm = "am";
+        } else {
+          time = (parseInt(time.slice(0,2)) - 12) + time.slice(2,5);
+          ampm = "pm"
+        }
+        
+        let formattedDueDate = `${day}/${month}/${year} at ${time}${ampm}`;
+        
+        return formattedDueDate;
+      }
+
     function makeTDForm() {
         // create the todolet form
         const newToDoLet = document.createElement('div');
@@ -18,12 +36,13 @@ const ToDoLetConstruction = (() => {
     };
     function makeDateLet() {
         // date and formatting (short form)
-        let currentdate = format(new Date(), 'MM/dd/yyyy');
+        let currentdate = format(new Date(), 'dd/MM/yyyy');
         let currenttime = format(new Date(), 'h:mmaaaa');
 
         // create the new datelet (current date/time)
         const newDateLet = document.createElement('div');
         newDateLet.classList.add('datelet');
+        newDateLet.classList.add('minicard');
         newDateLet.innerText = `Posted: ${currentdate} at ${currenttime}`;
         return newDateLet;
     };
@@ -31,7 +50,8 @@ const ToDoLetConstruction = (() => {
         // create the new duelet (due date/time)
         const newDueLet = document.createElement('div');
         newDueLet.classList.add('duelet');
-        const duetime = document.querySelector('#datetimeinput').value;
+        newDueLet.classList.add('minicard');
+        const duetime = formatTime(document.querySelector('#datetimeinput').value);
         if (duetime != "") {
             newDueLet.innerText = `Due: ${duetime}`;
         } else {
